@@ -16,4 +16,3 @@ Adobe Acrobat 11　用
 ユーザードメイン
 /Users/ユーザー名/Library/Application Support/Adobe/Acrobat/11.0/JavaScripts
 
-
