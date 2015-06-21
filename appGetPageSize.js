@@ -82,33 +82,52 @@ console.println(BoundingBoxWidth + " " + BoundingBoxHeight);
 ArtSizeAlert = (" ");
 
 if(ArtSizeWidth > CropSizeWidth){
-	ArtSizeAlert = ("【情報】表示サイズの外に\nオブジェクトがある可能性があります(w-Art)\n");
+	ArtSizeAlert = ("【情報】表示サイズの外に\nオブジェクトがある可能性があります(w-Art)\n-------\n");
 }
 if(ArtSizeHeight > CropSizeHeight){
-	ArtSizeAlert = ("【情報】表示サイズの外に\nオブジェクトがある可能性があります(h-Art)\n");
+	ArtSizeAlert = ("【情報】表示サイズの外に\nオブジェクトがある可能性があります(h-Art)\n-------\n");
 }
 
 TrimSizeAlert = (" ");
 
 if(TrimSizeWidth > BleedSizeWidth){
-	TrimSizeAlert = ("【情報】塗りたしサイズより\n仕上がりが大きい可能性があります(w-Trim)\n");
+	TrimSizeAlert = ("【情報】塗りたしサイズより\n仕上がりが大きい可能性があります(w-Trim)\n-------\n");
 }
 if(TrimSizeHeight > BleedSizeHeight){
-	TrimSizeAlert = ("【情報】塗りたしサイズより\n仕上がりが大きい可能性があります(h-Trim)\n");
+	TrimSizeAlert = ("【情報】塗りたしサイズより\n仕上がりが大きい可能性があります(h-Trim)\n-------\n");
 }
+
+console.println("\n" + MediaBoxSize[0] + "\n");
+
+
+MediaZeroAlert = (" ");
+
+
+
+if( 0 > MediaBoxSize[0] ){
+	MediaZeroAlert = ("-------\n【警告！】メディアサイズに負の値があります(m-Zero)\n");
+}
+
 
 
 nPage = nPage + 1 ;
 
 
 //アラートを表示
-	app.alert( TrimSizeAlert + " " + ArtSizeAlert + "\n" + "MediaSize\nメディアサイズ・用紙サイズ\n（PS 記述上の出力メディアの大きさ）:\n  Width: " + MediaSizeWidth +  "mm  Height : " + MediaSizeHeight + "mm\n\n" + 
-			"BleedSize\nブリード・裁ち落としサイズ\n（塗り足しを加えたページの大きさ）:\n  Width: " + BleedSizeWidth +  "mm  Height : " + BleedSizeHeight + "mm\n\n" + 
-			"TrimSize\nページサイズ・仕上がりサイズ\n（実際の最終仕上りページの大きさ）:\n  Width: " + TrimSizeWidth +  "mm  Height : " + TrimSizeHeight + "mm\n\n" + 
-			"CropSize\nトリミングサイズ・表示サイズ\n（画面に表示可能な大きさ）:\n  Width: " + CropSizeWidth +  "mm  Height : " + CropSizeHeight + "mm\n\n" + 
-			"ArtSize\nアート・オブジェクトサイズ\n（Cropトリミングサイズと同一がデフォルト）:\n  Width: " + ArtSizeWidth +  "mm  Height : " + ArtSizeHeight + "mm\n\n" + 
-			"BoundingBoxSize\nバウンディングボックス\n（オブジェクトのバウンディングボックスサイズ）:\n  Width: " + BoundingWidth +  "mm  Height : " + BoundingHeight + "mm\n\n" + nPage + "ページの情報" +
-			"\n");
+	app.alert(
+	TrimSizeAlert + " " + ArtSizeAlert + "\n" + "MediaSize\nメディアサイズ・用紙サイズ\n（PS 記述上の出力メディアの大きさ）:\n Width: " + 
+	MediaSizeWidth +  "mm  Height : " + MediaSizeHeight + "mm\n\n" + 
+			"BleedSize\nブリード・裁ち落としサイズ\n（塗り足しを加えたページの大きさ）:\n  Width: " + 
+			BleedSizeWidth +  "mm  Height : " + BleedSizeHeight + "mm\n\n" + 
+			"TrimSize\nページサイズ・仕上がりサイズ\n（実際の最終仕上りページの大きさ）:\n  Width: " + 
+			TrimSizeWidth +  "mm  Height : " + TrimSizeHeight + "mm\n\n" + 
+			"CropSize\nトリミングサイズ・表示サイズ\n（画面に表示可能な大きさ）:\n  Width: " + 
+			CropSizeWidth +  "mm  Height : " + CropSizeHeight + "mm\n\n" + 
+			"ArtSize\nアート・オブジェクトサイズ\n（Cropトリミングサイズと同一がデフォルト）:\n  Width: " + 
+			ArtSizeWidth +  "mm  Height : " + ArtSizeHeight + "mm\n\n" + 
+			"BoundingBoxSize\nバウンディングボックス\n（オブジェクトの境界線ボックスサイズ）:\n  Width: " + 
+			BoundingWidth +  "mm  Height : " + BoundingHeight + "mm\n\n" + nPage + "ページの情報" +
+			"\n\n" + MediaZeroAlert + " ");
 }
 
 //メニュー構成
